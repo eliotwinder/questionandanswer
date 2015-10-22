@@ -1,0 +1,12 @@
+User
+- add user
+- authenticate
+- authorize
+
+Question
+- add question
+- get questions
+
+Answer
+- get answers
+- add answer

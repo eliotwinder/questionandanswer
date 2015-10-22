@@ -1,0 +1,555 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'bcrypt' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose install initial load of /Users/eliot/Documents/qanda/package.json
+5 warn package.json qanda@1.0.0 No description
+6 warn package.json qanda@1.0.0 No repository field.
+7 warn package.json qanda@1.0.0 No README data
+8 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/body-parser/package.json
+9 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/cookie-parser/package.json
+10 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/express/package.json
+11 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/express-session/package.json
+12 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/passport/package.json
+13 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/passport-local/package.json
+14 verbose installManyTop reading scoped package data from /Users/eliot/Documents/qanda/node_modules/sequelize/package.json
+15 info package.json passport-local@1.0.0 No license field.
+16 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/package.json
+17 silly cache add args [ 'bcrypt', null ]
+18 verbose cache add spec bcrypt
+19 silly cache add parsed spec { raw: 'bcrypt',
+19 silly cache add   scope: null,
+19 silly cache add   name: 'bcrypt',
+19 silly cache add   rawSpec: '',
+19 silly cache add   spec: '*',
+19 silly cache add   type: 'range' }
+20 silly addNamed bcrypt@*
+21 verbose addNamed "*" is a valid semver range for bcrypt
+22 silly addNameRange { name: 'bcrypt', range: '*', hasData: false }
+23 silly mapToRegistry name bcrypt
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/bcrypt
+27 verbose addNameRange registry:https://registry.npmjs.org/bcrypt not in flight; fetching
+28 verbose request uri https://registry.npmjs.org/bcrypt
+29 verbose request no auth needed
+30 info attempt registry request try #1 at 3:18:17 PM
+31 verbose request id 8f78e4d33f00e98b
+32 verbose etag "F5LKQ9M2S1IVB3ZKCW9RNP1VI"
+33 http request GET https://registry.npmjs.org/bcrypt
+34 http 200 https://registry.npmjs.org/bcrypt
+35 silly get cb [ 200,
+35 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+35 silly get     etag: '"6MF2E89ZRP52319KQOZ8LM4Y"',
+35 silly get     'content-type': 'application/json',
+35 silly get     'cache-control': 'max-age=60',
+35 silly get     'content-length': '74202',
+35 silly get     'accept-ranges': 'bytes',
+35 silly get     date: 'Thu, 22 Oct 2015 22:18:18 GMT',
+35 silly get     via: '1.1 varnish',
+35 silly get     age: '0',
+35 silly get     connection: 'keep-alive',
+35 silly get     'x-served-by': 'cache-dfw1834-DFW',
+35 silly get     'x-cache': 'HIT',
+35 silly get     'x-cache-hits': '1',
+35 silly get     'x-timer': 'S1445552298.292261,VS0,VE66',
+35 silly get     vary: 'Accept' } ]
+36 verbose get saving bcrypt to /Users/eliot/.npm/registry.npmjs.org/bcrypt/.cache.json
+37 silly addNameRange number 2 { name: 'bcrypt', range: '*', hasData: true }
+38 silly addNameRange versions [ 'bcrypt',
+38 silly addNameRange   [ '0.1.2',
+38 silly addNameRange     '0.2.0',
+38 silly addNameRange     '0.2.1',
+38 silly addNameRange     '0.1.3',
+38 silly addNameRange     '0.2.2',
+38 silly addNameRange     '0.2.3',
+38 silly addNameRange     '0.2.4',
+38 silly addNameRange     '0.3.0',
+38 silly addNameRange     '0.3.1',
+38 silly addNameRange     '0.3.2',
+38 silly addNameRange     '0.4.0',
+38 silly addNameRange     '0.4.1',
+38 silly addNameRange     '0.5.0',
+38 silly addNameRange     '0.6.0',
+38 silly addNameRange     '0.7.0',
+38 silly addNameRange     '0.7.1',
+38 silly addNameRange     '0.7.2',
+38 silly addNameRange     '0.7.3',
+38 silly addNameRange     '0.7.4',
+38 silly addNameRange     '0.7.5',
+38 silly addNameRange     '0.7.6',
+38 silly addNameRange     '0.7.7',
+38 silly addNameRange     '0.7.8',
+38 silly addNameRange     '0.8.0',
+38 silly addNameRange     '0.8.1',
+38 silly addNameRange     '0.8.2',
+38 silly addNameRange     '0.8.3',
+38 silly addNameRange     '0.8.4',
+38 silly addNameRange     '0.8.5' ] ]
+39 silly addNamed bcrypt@0.8.5
+40 verbose addNamed "0.8.5" is a plain semver version for bcrypt
+41 silly cache afterAdd bcrypt@0.8.5
+42 verbose afterAdd /Users/eliot/.npm/bcrypt/0.8.5/package/package.json not in flight; writing
+43 verbose afterAdd /Users/eliot/.npm/bcrypt/0.8.5/package/package.json written
+44 silly install resolved [ { name: 'bcrypt',
+44 silly install resolved     description: 'A bcrypt library for NodeJS.',
+44 silly install resolved     keywords:
+44 silly install resolved      [ 'bcrypt',
+44 silly install resolved        'password',
+44 silly install resolved        'auth',
+44 silly install resolved        'authentication',
+44 silly install resolved        'encryption',
+44 silly install resolved        'crypt',
+44 silly install resolved        'crypto' ],
+44 silly install resolved     main: './bcrypt',
+44 silly install resolved     version: '0.8.5',
+44 silly install resolved     author: { name: 'Nick Campbell', url: 'https://github.com/ncb000gt' },
+44 silly install resolved     engines: { node: '>= 0.6.0' },
+44 silly install resolved     repository:
+44 silly install resolved      { type: 'git',
+44 silly install resolved        url: 'git+https://github.com/ncb000gt/node.bcrypt.js.git' },
+44 silly install resolved     license: 'MIT',
+44 silly install resolved     bugs: { url: 'https://github.com/ncb000gt/node.bcrypt.js/issues' },
+44 silly install resolved     scripts:
+44 silly install resolved      { test: 'node-gyp configure build && nodeunit test',
+44 silly install resolved        install: 'node-gyp rebuild' },
+44 silly install resolved     dependencies: { bindings: '1.2.1', nan: '2.0.5' },
+44 silly install resolved     devDependencies: { nodeunit: '~0.9.1' },
+44 silly install resolved     contributors:
+44 silly install resolved      [ [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object],
+44 silly install resolved        [Object] ],
+44 silly install resolved     gypfile: true,
+44 silly install resolved     gitHead: '5d97708f06754d7d7989c67ba867002d10013615',
+44 silly install resolved     homepage: 'https://github.com/ncb000gt/node.bcrypt.js#readme',
+44 silly install resolved     _id: 'bcrypt@0.8.5',
+44 silly install resolved     _shasum: '8e5b81b4db80e944f440005979ca8d58a961861d',
+44 silly install resolved     _from: 'bcrypt@*',
+44 silly install resolved     _npmVersion: '2.13.3',
+44 silly install resolved     _nodeVersion: '3.0.0',
+44 silly install resolved     _npmUser: { name: 'defunctzombie', email: 'shtylman@gmail.com' },
+44 silly install resolved     dist:
+44 silly install resolved      { shasum: '8e5b81b4db80e944f440005979ca8d58a961861d',
+44 silly install resolved        tarball: 'http://registry.npmjs.org/bcrypt/-/bcrypt-0.8.5.tgz' },
+44 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+44 silly install resolved     directories: {},
+44 silly install resolved     _resolved: 'https://registry.npmjs.org/bcrypt/-/bcrypt-0.8.5.tgz',
+44 silly install resolved     readme: 'ERROR: No README data found!' } ]
+45 info install bcrypt@0.8.5 into /Users/eliot/Documents/qanda
+46 info installOne bcrypt@0.8.5
+47 verbose installOne of bcrypt to /Users/eliot/Documents/qanda not in flight; installing
+48 verbose lock using /Users/eliot/.npm/_locks/bcrypt-9ef9ce01a4e03d73.lock for /Users/eliot/Documents/qanda/node_modules/bcrypt
+49 silly install write writing bcrypt 0.8.5 to /Users/eliot/Documents/qanda/node_modules/bcrypt
+50 verbose unbuild node_modules/bcrypt
+51 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt is being purged from base /Users/eliot/Documents/qanda
+52 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt
+53 verbose tar unpack /Users/eliot/.npm/bcrypt/0.8.5/package.tgz
+54 verbose tar unpacking to /Users/eliot/Documents/qanda/node_modules/bcrypt
+55 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt is being purged
+56 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt
+57 silly gunzTarPerm modes [ '755', '644' ]
+58 silly gunzTarPerm extractEntry package.json
+59 silly gunzTarPerm extractEntry .npmignore
+60 silly gunzTarPerm extractEntry README.md
+61 silly gunzTarPerm extractEntry LICENSE
+62 silly gunzTarPerm extractEntry bcrypt.js
+63 silly gunzTarPerm extractEntry binding.gyp
+64 silly gunzTarPerm extractEntry .travis.yml
+65 silly gunzTarPerm extractEntry CHANGELOG.md
+66 silly gunzTarPerm extractEntry examples/async_compare.js
+67 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+68 silly gunzTarPerm extractEntry test/async.js
+69 silly gunzTarPerm extractEntry test/repetitions.js
+70 silly gunzTarPerm extractEntry test/sync.js
+71 silly gunzTarPerm extractEntry Makefile
+72 silly gunzTarPerm extractEntry src/bcrypt.cc
+73 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+74 silly gunzTarPerm extractEntry src/blowfish.cc
+75 silly gunzTarPerm extractEntry src/node_blf.h
+76 silly gunzTarPerm extractEntry werker.yml
+77 verbose write writing to /Users/eliot/Documents/qanda/node_modules/bcrypt/package.json
+78 info preinstall bcrypt@0.8.5
+79 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/node_modules/bcrypt/package.json
+80 silly prepareForInstallMany adding bindings@1.2.1 from bcrypt dependencies
+81 silly prepareForInstallMany adding nan@2.0.5 from bcrypt dependencies
+82 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/node_modules/bcrypt/package.json
+83 silly cache add args [ 'bindings@1.2.1', null ]
+84 verbose cache add spec bindings@1.2.1
+85 silly cache add args [ 'nan@2.0.5', null ]
+86 verbose cache add spec nan@2.0.5
+87 silly cache add parsed spec { raw: 'bindings@1.2.1',
+87 silly cache add   scope: null,
+87 silly cache add   name: 'bindings',
+87 silly cache add   rawSpec: '1.2.1',
+87 silly cache add   spec: '1.2.1',
+87 silly cache add   type: 'version' }
+88 silly addNamed bindings@1.2.1
+89 verbose addNamed "1.2.1" is a plain semver version for bindings
+90 silly mapToRegistry name bindings
+91 silly mapToRegistry using default registry
+92 silly mapToRegistry registry https://registry.npmjs.org/
+93 silly mapToRegistry uri https://registry.npmjs.org/bindings
+94 verbose addNameVersion registry:https://registry.npmjs.org/bindings not in flight; fetching
+95 silly cache add parsed spec { raw: 'nan@2.0.5',
+95 silly cache add   scope: null,
+95 silly cache add   name: 'nan',
+95 silly cache add   rawSpec: '2.0.5',
+95 silly cache add   spec: '2.0.5',
+95 silly cache add   type: 'version' }
+96 silly addNamed nan@2.0.5
+97 verbose addNamed "2.0.5" is a plain semver version for nan
+98 silly mapToRegistry name nan
+99 silly mapToRegistry using default registry
+100 silly mapToRegistry registry https://registry.npmjs.org/
+101 silly mapToRegistry uri https://registry.npmjs.org/nan
+102 verbose addNameVersion registry:https://registry.npmjs.org/nan not in flight; fetching
+103 verbose request uri https://registry.npmjs.org/bindings
+104 verbose request no auth needed
+105 info attempt registry request try #1 at 3:18:18 PM
+106 verbose etag "BCS5XYG9ISNJFNKEL5FLOI5HX"
+107 http request GET https://registry.npmjs.org/bindings
+108 verbose request uri https://registry.npmjs.org/nan
+109 verbose request no auth needed
+110 info attempt registry request try #1 at 3:18:18 PM
+111 verbose etag "1L4RU1AM541YSVP1YQFXG1Y1J"
+112 http request GET https://registry.npmjs.org/nan
+113 http 200 https://registry.npmjs.org/bindings
+114 silly get cb [ 200,
+114 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+114 silly get     etag: '"547Q3C60W4DUGPOZ65YOO6930"',
+114 silly get     'content-type': 'application/json',
+114 silly get     'cache-control': 'max-age=60',
+114 silly get     'content-length': '18018',
+114 silly get     'accept-ranges': 'bytes',
+114 silly get     date: 'Thu, 22 Oct 2015 22:18:19 GMT',
+114 silly get     via: '1.1 varnish',
+114 silly get     age: '27',
+114 silly get     connection: 'keep-alive',
+114 silly get     'x-served-by': 'cache-dfw1822-DFW',
+114 silly get     'x-cache': 'HIT',
+114 silly get     'x-cache-hits': '3',
+114 silly get     'x-timer': 'S1445552299.257365,VS0,VE0',
+114 silly get     vary: 'Accept' } ]
+115 verbose get saving bindings to /Users/eliot/.npm/registry.npmjs.org/bindings/.cache.json
+116 silly mapToRegistry name bindings
+117 silly mapToRegistry using default registry
+118 silly mapToRegistry registry https://registry.npmjs.org/
+119 silly mapToRegistry uri https://registry.npmjs.org/bindings
+120 verbose addRemoteTarball https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz not in flight; adding
+121 verbose addRemoteTarball [ 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+121 verbose addRemoteTarball   '14ad6113812d2d37d72e67b4cacb4bb726505f11' ]
+122 info retry fetch attempt 1 at 3:18:19 PM
+123 info attempt registry request try #1 at 3:18:19 PM
+124 http fetch GET https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz
+125 http 200 https://registry.npmjs.org/nan
+126 silly get cb [ 200,
+126 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+126 silly get     etag: '"ERG43QC6NFSOYIS0CC7CHDM4Y"',
+126 silly get     'content-type': 'application/json',
+126 silly get     'cache-control': 'max-age=60',
+126 silly get     'content-length': '100032',
+126 silly get     'accept-ranges': 'bytes',
+126 silly get     date: 'Thu, 22 Oct 2015 22:18:19 GMT',
+126 silly get     via: '1.1 varnish',
+126 silly get     age: '53',
+126 silly get     connection: 'keep-alive',
+126 silly get     'x-served-by': 'cache-dfw1828-DFW',
+126 silly get     'x-cache': 'HIT',
+126 silly get     'x-cache-hits': '2',
+126 silly get     'x-timer': 'S1445552299.297232,VS0,VE0',
+126 silly get     vary: 'Accept' } ]
+127 verbose get saving nan to /Users/eliot/.npm/registry.npmjs.org/nan/.cache.json
+128 silly mapToRegistry name nan
+129 silly mapToRegistry using default registry
+130 silly mapToRegistry registry https://registry.npmjs.org/
+131 silly mapToRegistry uri https://registry.npmjs.org/nan
+132 verbose addRemoteTarball https://registry.npmjs.org/nan/-/nan-2.0.5.tgz not in flight; adding
+133 verbose addRemoteTarball [ 'https://registry.npmjs.org/nan/-/nan-2.0.5.tgz',
+133 verbose addRemoteTarball   '365888014be1fd178db0cbfa258edf7b0cb1c408' ]
+134 info retry fetch attempt 1 at 3:18:19 PM
+135 info attempt registry request try #1 at 3:18:19 PM
+136 http fetch GET https://registry.npmjs.org/nan/-/nan-2.0.5.tgz
+137 http fetch 200 https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz
+138 silly fetchAndShaCheck shasum 14ad6113812d2d37d72e67b4cacb4bb726505f11
+139 verbose addTmpTarball /var/folders/yv/966grdmx3jd8p7hym70tjlqm0000gn/T/npm-15676-e814df40/registry.npmjs.org/bindings/-/bindings-1.2.1.tgz not in flight; adding
+140 verbose addTmpTarball already have metadata; skipping unpack for bindings@1.2.1
+141 silly cache afterAdd bindings@1.2.1
+142 verbose afterAdd /Users/eliot/.npm/bindings/1.2.1/package/package.json not in flight; writing
+143 verbose afterAdd /Users/eliot/.npm/bindings/1.2.1/package/package.json written
+144 http fetch 200 https://registry.npmjs.org/nan/-/nan-2.0.5.tgz
+145 silly fetchAndShaCheck shasum 365888014be1fd178db0cbfa258edf7b0cb1c408
+146 verbose addTmpTarball /var/folders/yv/966grdmx3jd8p7hym70tjlqm0000gn/T/npm-15676-e814df40/registry.npmjs.org/nan/-/nan-2.0.5.tgz not in flight; adding
+147 verbose addTmpTarball already have metadata; skipping unpack for nan@2.0.5
+148 silly cache afterAdd nan@2.0.5
+149 verbose afterAdd /Users/eliot/.npm/nan/2.0.5/package/package.json not in flight; writing
+150 verbose afterAdd /Users/eliot/.npm/nan/2.0.5/package/package.json written
+151 silly install resolved [ { name: 'bindings',
+151 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+151 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+151 silly install resolved     version: '1.2.1',
+151 silly install resolved     author:
+151 silly install resolved      { name: 'Nathan Rajlich',
+151 silly install resolved        email: 'nathan@tootallnate.net',
+151 silly install resolved        url: 'http://tootallnate.net' },
+151 silly install resolved     repository:
+151 silly install resolved      { type: 'git',
+151 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+151 silly install resolved     main: './bindings.js',
+151 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+151 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+151 silly install resolved     license: 'MIT',
+151 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+151 silly install resolved     _id: 'bindings@1.2.1',
+151 silly install resolved     scripts: {},
+151 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+151 silly install resolved     _from: 'bindings@1.2.1',
+151 silly install resolved     _npmVersion: '1.4.14',
+151 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+151 silly install resolved     maintainers: [ [Object], [Object] ],
+151 silly install resolved     dist:
+151 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+151 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+151 silly install resolved     directories: {},
+151 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+151 silly install resolved   { name: 'nan',
+151 silly install resolved     version: '2.0.5',
+151 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+151 silly install resolved     main: 'include_dirs.js',
+151 silly install resolved     repository: { type: 'git', url: 'git://github.com/nodejs/nan.git' },
+151 silly install resolved     scripts:
+151 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+151 silly install resolved        'rebuild-tests': 'pangyp rebuild --msvs_version=2013 --directory test',
+151 silly install resolved        docs: 'doc/.build.sh' },
+151 silly install resolved     contributors:
+151 silly install resolved      [ [Object],
+151 silly install resolved        [Object],
+151 silly install resolved        [Object],
+151 silly install resolved        [Object],
+151 silly install resolved        [Object],
+151 silly install resolved        [Object],
+151 silly install resolved        [Object] ],
+151 silly install resolved     devDependencies:
+151 silly install resolved      { bindings: '~1.2.1',
+151 silly install resolved        'node-gyp': '~2.0.2',
+151 silly install resolved        pangyp: '~2.2.0',
+151 silly install resolved        tap: '~0.7.1',
+151 silly install resolved        xtend: '~4.0.0' },
+151 silly install resolved     license: 'MIT',
+151 silly install resolved     gitHead: 'd13a2e9ce762fd130877b53c71d35963fa2cf689',
+151 silly install resolved     bugs: { url: 'https://github.com/nodejs/nan/issues' },
+151 silly install resolved     homepage: 'https://github.com/nodejs/nan#readme',
+151 silly install resolved     _id: 'nan@2.0.5',
+151 silly install resolved     _shasum: '365888014be1fd178db0cbfa258edf7b0cb1c408',
+151 silly install resolved     _from: 'nan@2.0.5',
+151 silly install resolved     _npmVersion: '2.13.3',
+151 silly install resolved     _nodeVersion: '3.0.0',
+151 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+151 silly install resolved     maintainers: [ [Object], [Object] ],
+151 silly install resolved     dist:
+151 silly install resolved      { shasum: '365888014be1fd178db0cbfa258edf7b0cb1c408',
+151 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-2.0.5.tgz' },
+151 silly install resolved     directories: {},
+151 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-2.0.5.tgz' } ]
+152 info install bindings@1.2.1 into /Users/eliot/Documents/qanda/node_modules/bcrypt
+153 info install nan@2.0.5 into /Users/eliot/Documents/qanda/node_modules/bcrypt
+154 info installOne bindings@1.2.1
+155 verbose installOne of bindings to /Users/eliot/Documents/qanda/node_modules/bcrypt not in flight; installing
+156 info installOne nan@2.0.5
+157 verbose installOne of nan to /Users/eliot/Documents/qanda/node_modules/bcrypt not in flight; installing
+158 verbose lock using /Users/eliot/.npm/_locks/bindings-63dda8f0497d675e.lock for /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+159 verbose lock using /Users/eliot/.npm/_locks/nan-396e7f4788a549fc.lock for /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+160 silly install write writing bindings 1.2.1 to /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+161 silly install write writing nan 2.0.5 to /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+162 verbose unbuild node_modules/bcrypt/node_modules/bindings
+163 verbose unbuild node_modules/bcrypt/node_modules/nan
+164 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings is being purged from base /Users/eliot/Documents/qanda
+165 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+166 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan is being purged from base /Users/eliot/Documents/qanda
+167 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+168 verbose tar unpack /Users/eliot/.npm/bindings/1.2.1/package.tgz
+169 verbose tar unpacking to /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+170 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings is being purged
+171 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+172 verbose tar unpack /Users/eliot/.npm/nan/2.0.5/package.tgz
+173 verbose tar unpacking to /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+174 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan is being purged
+175 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+176 silly gunzTarPerm modes [ '755', '644' ]
+177 silly gunzTarPerm modes [ '755', '644' ]
+178 silly gunzTarPerm extractEntry package.json
+179 silly gunzTarPerm extractEntry package.json
+180 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+181 silly gunzTarPerm extractEntry README.md
+182 silly gunzTarPerm extractEntry bindings.js
+183 silly gunzTarPerm extractEntry README.md
+184 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+185 silly gunzTarPerm extractEntry include_dirs.js
+186 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+187 silly gunzTarPerm extractEntry nan_converters.h
+188 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 420 ]
+189 silly gunzTarPerm extractEntry LICENSE.md
+190 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+191 silly gunzTarPerm extractEntry .dntrc
+192 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+193 silly gunzTarPerm extractEntry appveyor.yml
+194 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+195 verbose write writing to /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings/package.json
+196 info preinstall bindings@1.2.1
+197 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings/package.json
+198 silly gunzTarPerm extractEntry doc/new.md
+199 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 420 ]
+200 silly gunzTarPerm extractEntry doc/.build.sh
+201 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 493 ]
+202 silly gunzTarPerm extractEntry doc/buffers.md
+203 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 420 ]
+204 silly gunzTarPerm extractEntry doc/callback.md
+205 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 420 ]
+206 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings/package.json
+207 silly install resolved []
+208 verbose about to build /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+209 info build /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+210 silly gunzTarPerm extractEntry doc/converters.md
+211 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 420 ]
+212 silly gunzTarPerm extractEntry doc/errors.md
+213 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 420 ]
+214 info linkStuff bindings@1.2.1
+215 silly linkStuff bindings@1.2.1 has /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules as its parent node_modules
+216 silly gunzTarPerm extractEntry doc/maybe_types.md
+217 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 420 ]
+218 silly gunzTarPerm extractEntry doc/methods.md
+219 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 420 ]
+220 verbose linkBins bindings@1.2.1
+221 verbose linkMans bindings@1.2.1
+222 verbose rebuildBundles bindings@1.2.1
+223 info install bindings@1.2.1
+224 silly gunzTarPerm extractEntry doc/asyncworker.md
+225 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 420 ]
+226 silly gunzTarPerm extractEntry doc/node_misc.md
+227 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 420 ]
+228 info postinstall bindings@1.2.1
+229 verbose unlock done using /Users/eliot/.npm/_locks/bindings-63dda8f0497d675e.lock for /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/bindings
+230 silly gunzTarPerm extractEntry doc/persistent.md
+231 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 420 ]
+232 silly gunzTarPerm extractEntry doc/scopes.md
+233 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 420 ]
+234 silly gunzTarPerm extractEntry doc/script.md
+235 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 420 ]
+236 silly gunzTarPerm extractEntry doc/string_bytes.md
+237 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 420 ]
+238 silly gunzTarPerm extractEntry doc/v8_internals.md
+239 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 420 ]
+240 silly gunzTarPerm extractEntry doc/v8_misc.md
+241 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 420 ]
+242 silly gunzTarPerm extractEntry nan.h
+243 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+244 silly gunzTarPerm extractEntry nan_callbacks.h
+245 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 420 ]
+246 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+247 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 420 ]
+248 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+249 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 420 ]
+250 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+251 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 420 ]
+252 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+253 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 420 ]
+254 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+255 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+256 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+257 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+258 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+259 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 420 ]
+260 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+261 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 420 ]
+262 silly gunzTarPerm extractEntry nan_new.h
+263 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+264 silly gunzTarPerm extractEntry nan_object_wrap.h
+265 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 420 ]
+266 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+267 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 420 ]
+268 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+269 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 420 ]
+270 silly gunzTarPerm extractEntry nan_string_bytes.h
+271 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+272 silly gunzTarPerm extractEntry nan_weak.h
+273 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 420 ]
+274 silly gunzTarPerm extractEntry CHANGELOG.md
+275 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+276 silly gunzTarPerm extractEntry tools/package.json
+277 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 420 ]
+278 silly gunzTarPerm extractEntry tools/README.md
+279 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 420 ]
+280 silly gunzTarPerm extractEntry tools/1to2.js
+281 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 493 ]
+282 verbose write writing to /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan/package.json
+283 info preinstall nan@2.0.5
+284 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan/package.json
+285 verbose readDependencies loading dependencies from /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan/package.json
+286 silly install resolved []
+287 verbose about to build /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+288 info build /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+289 info linkStuff nan@2.0.5
+290 silly linkStuff nan@2.0.5 has /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules as its parent node_modules
+291 verbose linkBins nan@2.0.5
+292 verbose linkMans nan@2.0.5
+293 verbose rebuildBundles nan@2.0.5
+294 info install nan@2.0.5
+295 info postinstall nan@2.0.5
+296 verbose unlock done using /Users/eliot/.npm/_locks/nan-396e7f4788a549fc.lock for /Users/eliot/Documents/qanda/node_modules/bcrypt/node_modules/nan
+297 verbose about to build /Users/eliot/Documents/qanda/node_modules/bcrypt
+298 info build /Users/eliot/Documents/qanda/node_modules/bcrypt
+299 info linkStuff bcrypt@0.8.5
+300 silly linkStuff bcrypt@0.8.5 has /Users/eliot/Documents/qanda/node_modules as its parent node_modules
+301 verbose linkBins bcrypt@0.8.5
+302 verbose linkMans bcrypt@0.8.5
+303 verbose rebuildBundles bcrypt@0.8.5
+304 verbose rebuildBundles [ 'bindings', 'nan' ]
+305 info install bcrypt@0.8.5
+306 verbose unsafe-perm in lifecycle true
+307 info bcrypt@0.8.5 Failed to exec install script
+308 verbose unlock done using /Users/eliot/.npm/_locks/bcrypt-9ef9ce01a4e03d73.lock for /Users/eliot/Documents/qanda/node_modules/bcrypt
+309 verbose stack Error: bcrypt@0.8.5 install: `node-gyp rebuild`
+309 verbose stack Exit status 1
+309 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+309 verbose stack     at EventEmitter.emit (events.js:110:17)
+309 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+309 verbose stack     at ChildProcess.emit (events.js:110:17)
+309 verbose stack     at maybeClose (child_process.js:1015:16)
+309 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+310 verbose pkgid bcrypt@0.8.5
+311 verbose cwd /Users/eliot/Documents/qanda
+312 error Darwin 14.3.0
+313 error argv "node" "/usr/local/bin/npm" "install" "bcrypt"
+314 error node v0.12.4
+315 error npm  v2.10.1
+316 error code ELIFECYCLE
+317 error bcrypt@0.8.5 install: `node-gyp rebuild`
+317 error Exit status 1
+318 error Failed at the bcrypt@0.8.5 install script 'node-gyp rebuild'.
+318 error This is most likely a problem with the bcrypt package,
+318 error not with npm itself.
+318 error Tell the author that this fails on your system:
+318 error     node-gyp rebuild
+318 error You can get their info via:
+318 error     npm owner ls bcrypt
+318 error There is likely additional logging output above.
+319 verbose exit [ 1, true ]
+320 verbose unbuild node_modules/bcrypt
+321 info preuninstall bcrypt@0.8.5
+322 info uninstall bcrypt@0.8.5
+323 verbose unbuild rmStuff bcrypt@0.8.5 from /Users/eliot/Documents/qanda/node_modules
+324 info postuninstall bcrypt@0.8.5
+325 silly gentlyRm /Users/eliot/Documents/qanda/node_modules/bcrypt is being purged from base /Users/eliot/Documents/qanda
+326 verbose gentlyRm don't care about contents; nuking /Users/eliot/Documents/qanda/node_modules/bcrypt
+327 silly vacuum-fs purging /Users/eliot/Documents/qanda/node_modules/bcrypt
+328 silly vacuum-fs quitting because other entries in /Users/eliot/Documents/qanda/node_modules
