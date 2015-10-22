@@ -6,7 +6,7 @@ var questionController = require('./controllers/questionController');
 var userController = require('./controllers/userController');
 var answerController = require('./controllers/answerController');
 
-module.exports = function(express, app) {
+module.exports = function(express, app, passport) {
   // serve static files from client folder
   app.use(express.static(__dirname + '/client/'));
 

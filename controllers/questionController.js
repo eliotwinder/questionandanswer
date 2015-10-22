@@ -5,11 +5,7 @@ module.exports = {
     var Question = req.app.get('models').Question;
     var User = req.app.get('models').User;
     
-    return Question.findAll({
-      where: {
-      
-      }
-    });
+    return Question.query();
   },
 
   post: function() {

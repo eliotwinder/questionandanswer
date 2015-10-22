@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 // var middleware = require('./middleware');
-// 
+
 var sequelize = require('./models/index').sequelize;
 var models = require('./models/index');
 
@@ -30,11 +30,11 @@ var routes = require('./routes');
 // sync sequelize with db, then add routes and start server
 sequelize.sync().then(function() {
   app.use(cookieParser());
-  app.use(session({
-    secret: config.secret,
-    resave: false,
-    saveUninitialized: true
-  }));
+  // configure passport
+  // require('./config/passport')(passport); // pass passport for configuration
+  app.use(session({ secret: config.secret})); // session secret
+  app.use(passport.initialize());
+  app.use(passport.session()); // persistent login sessions
   app.use(passport.initialize());
   app.use(passport.session());
   routes(express, app);
