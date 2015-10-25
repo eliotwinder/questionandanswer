@@ -1,0 +1,30 @@
+<div>
+  <div class="main">
+    <form ng-submit="postQuestion()">
+      <h1> Username:</h1> 
+      <input type="text" ng-model="newQuestion.username">
+      <h1>Password:</h1>
+      <input type="password" ng-model="newQuestion.answer1">
+      <input type="password" ng-model="newQuestion.answer2">
+      <input type="password" ng-model="newQuestion.answer3">
+      <input type="password" ng-model="newQuestion.answer4">
+      <input class="button signinbutton" type="submit" value="Sign in">
+    </form>
+  </div>
+  <div> Current Results </div>
+  <table>
+    <tr>
+      <th> Question </th>
+      <th> Answers </th>
+    </tr>
+    <tr ng-repeat="question in questions track by $index">
+      <td> {{ question.text }} </td>
+      <td> 
+        <div ng-repeat="answer in question.answers"> 
+          <div> {{ answer.text}} </div> 
+          <div> {{ answer.score }} </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

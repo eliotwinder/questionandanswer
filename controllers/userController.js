@@ -1,4 +1,5 @@
 module.exports = {
   get: function(){},
-  post: function(){}
+  signup: function(){},
+  login: function(){}
 };

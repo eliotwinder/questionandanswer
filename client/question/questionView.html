@@ -1,0 +1,6 @@
+<div>
+  <div> {{ questions[0].text }} </div>
+  <div ng-repeat='answer in question[0].answers track by $index'>
+    <div> {{ answer }} </div>
+  </div>
+</div>

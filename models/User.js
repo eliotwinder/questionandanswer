@@ -1,3 +1,5 @@
+var bcrypt = require('bcryptjs');
+
 module.exports = function(sequelize, dataTypes) {
   return sequelize.define('User', {
     username: {
@@ -11,5 +13,17 @@ module.exports = function(sequelize, dataTypes) {
     isAdmin: {
       type: dataTypes.BOOLEAN
     }
-  })
-}
+  },{
+    classMethods: {
+      generateHash: function(password) {
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null) 
+      }
+    }
+  }, {
+    instanceMethods: {
+      validPassword: function(password) {
+        return bcrypt.compareSync(password, this.hashedPass);
+      }
+    }
+  });
+};

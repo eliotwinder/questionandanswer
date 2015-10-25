@@ -39,9 +39,9 @@ for (var k in models) {
   });
   m.Question.hasMany(m.Answer);
 
-  // users can have many answers, answers have many users
-  m.Answer.belongsTo(m.User);
-  m.User.hasMany(m.Answer);
+  // creates join table for user answers
+  m.Answer.belongsToMany(m.User, {through: 'userAnswer'});
+  m.User.belongsToMany(m.Answer, {through: 'userAnswer'});
 
 })(module.exports);
 
