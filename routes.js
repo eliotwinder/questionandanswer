@@ -1,5 +1,6 @@
 // middleware
 var isLoggedIn = require('./middleware/isLoggedIn');
+var isAdmin = require('./middleware/isAdmin');
 
 // controllers
 var questionController = require('./controllers/questionController');
@@ -12,8 +13,11 @@ module.exports = function(express, app, passport) {
   // get a new set of questions
   app.get('/api/question', isLoggedIn, questionController.get);
   // add a new question
-  app.post('/api/question', questionController.post);
+  app.post('/api/question', isAdmin, questionController.post);
 
+  // gives answers with the questions
+  app.get('/api/question', isLoggedIn, questionController.get);
+  
   // USERS
   // signup new user
   app.post('/api/signup', passport.authenticate('local-signup', {
@@ -23,7 +27,7 @@ module.exports = function(express, app, passport) {
   }));
   // user login
   app.post('/api/login', passport.authenticate('local-login', {
-    successRedirect : '/profile', // redirect to the secure profile section
+    successRedirect : '/questions', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));

@@ -24,7 +24,7 @@ module.exports = function(passport, app) {
       passReqToCallback: true
     },
     function(req, username, password, done){
-      console.log(req.body);
+      console.log('authenticating');
       User.findOne({where: {username: username}})
         .then(function(user) {
           // if findOne returns a user, the username is taken

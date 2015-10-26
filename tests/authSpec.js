@@ -6,7 +6,7 @@ var request = require('request');
 var fakeUser = {
   username: "ElCapitanTheGreat",
   password: "taco"
-}
+};
 
 
 test('signup Test', function(t){

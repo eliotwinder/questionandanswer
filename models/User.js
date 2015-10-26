@@ -18,11 +18,13 @@ module.exports = function(sequelize, dataTypes) {
       generateHash: function(password) {
         return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null) 
       }
-    }
-  }, {
+    },
     instanceMethods: {
       validPassword: function(password) {
-        return bcrypt.compareSync(password, this.hashedPass);
+        return bcrypt.compareSync(password, this.get('hashedPass'));
+      },
+      isAdmin: function() {
+        return this.get('isAdmin');
       }
     }
   });

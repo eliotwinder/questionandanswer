@@ -8,8 +8,7 @@ GET '/api/question' => response body = {
   text: "This is the actual question"
   answers: [{
       text: "option 1"
-    }, {
-      "option 2", "option 3", etc.]
+      score: 43 // percentage of the vote this answer has recieved
     }, answer3, etc.
   }, question 2, etc.]
 };
@@ -19,11 +18,12 @@ GET '/api/answers' => response body = same as '/api/question'
 
 // adds a question to db - currently accepts any # of answers
 POST '/api/question' => request body = {
-  question: {
-    text: 'This is my new question'
-    answers ['option 1', 'option 2', 'option 3', 'option 4', etc]
+    question: {
+      text: 'This is my new question'
+      answers ['option 1', 'option 2', 'option 3', 'option 4', etc]
+    }
   }
-};
+  Response.body will be the same as request body
 
 POST '/api/signup' =>
   request body = {
@@ -31,4 +31,12 @@ POST '/api/signup' =>
     password: 'password'
   };
 
-  response redirects to '/'
+  response redirects to '/signup'
+
+POST '/api/signup' =>
+  request body = {
+    username: 'username',
+    password: 'password'
+  };
+
+  response redirects to '/questions'
