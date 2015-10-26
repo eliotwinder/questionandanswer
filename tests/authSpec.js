@@ -42,7 +42,7 @@ test('good login test', function(t){
 test('bad login test', function(t){
   t.plan(1);
 
-  var j = request.jar()
+  var j = request.jar();
 
   request.post({
     url: url + '/api/login',

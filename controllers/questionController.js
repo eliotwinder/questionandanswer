@@ -5,12 +5,14 @@ module.exports = {
     var Question = req.app.get('models').Question;
     var User = req.app.get('models').User;
     
-    return Question.query();
+    return Question.findAll({
+
+    });
   },
 
   // add a questions to the db
   post: function(req, res, next) { 
-    console.log('here');
+
     // so that we have access to the created question throughout th promise chain
     var currentQuestion;
     var Question = req.app.get('models').Question;
@@ -26,7 +28,7 @@ module.exports = {
         
         // add answers to the answer table
         var answers = [];
-        console.log(req.body.answers);
+
         for (var i = 0; i < req.body.answers.length; i++) {
 
           answers.push(Answer.create({

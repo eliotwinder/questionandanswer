@@ -4,5 +4,5 @@ module.exports = function(sequelize, dataTypes) {
       type: dataTypes.STRING,
       allowNull: false
     }
-  })
+  });
 }

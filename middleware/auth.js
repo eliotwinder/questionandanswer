@@ -24,7 +24,6 @@ module.exports = function(passport, app) {
       passReqToCallback: true
     },
     function(req, username, password, done){
-      console.log('authenticating');
       User.findOne({where: {username: username}})
         .then(function(user) {
           // if findOne returns a user, the username is taken
@@ -35,7 +34,7 @@ module.exports = function(passport, app) {
             var newUser = {
               username: username,
               hashedPass: User.generateHash(password),
-              isAdmin: 1
+              isAdmin: req.body.isAdmin || false
             };
 
             User.create(newUser)

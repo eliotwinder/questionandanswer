@@ -2,9 +2,9 @@
 var config = require('./config');
 var express = require('express');
 var passport = require('passport');
-var flash = require('connect-flash');
 var http = require('http');
 var app = express();
+var dummyData = require('./tests/dummyData'); //TODO: COMMENT OUT
 
 // MIDDLEWARE
 var path = require('path');
@@ -36,11 +36,13 @@ sequelize.sync().then(function() {
   app.use(session({ secret: config.secret})); // session secret
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use(flash())
 
   // serve static files from client folder
   app.use(express.static(__dirname + '/client/'));
 
   routes(express, app, passport);
   http.createServer(app).listen(port);
+
+  // TODO: COMMENT OUT insert dummyData
+  dummyData(models);
 });
