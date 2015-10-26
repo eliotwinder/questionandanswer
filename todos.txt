@@ -1,1 +1,2 @@
 - handle user signup when username is taken
+- sanitize username

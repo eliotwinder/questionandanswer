@@ -5,7 +5,8 @@ var request = require('request');
 
 var fakeUser = {
   username: "ElCapitanTheGreat",
-  password: "taco"
+  password: "taco",
+  isAdmin: 1
 };
 
 var fakeQuestion = {
@@ -16,6 +17,21 @@ var fakeQuestion = {
 
 // login to check auth
 var j = request.jar();
+
+test('signup Test', function(t){
+  t.plan(1);
+
+  var j = request.jar();
+  
+  request.post({
+    url: url + '/api/signup',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(fakeUser),
+    jar: j,
+  }, function(error, response, body) {
+    t.equal(error, null);
+  });  
+});
 
 test('login user before testing questions end point', function(t){
 
@@ -45,22 +61,23 @@ test('post question', function(t) {
     jar: j 
   }, function(error, response, body){
     var parsedBody = JSON.parse(body);
-
+    var answerLength = parsedBody.Answers.length;
     t.equal(parsedBody.text, fakeQuestion.text);
-    t.equal(parsedBody.Answers.length, 4);
+    t.equal(answerLength, 4);
   });
 });
 
 test('get questions, not checking if user has answered', function(t){   
   t.plan(2);
+
   request.get({
     url: url + '/api/question',
     jar: j 
   }, function(error, response, body){
     var parsedBody = JSON.parse(body);
-
-    t.equal(parsedBody.text, fakeQuestion.text);
-    t.equal(parsedBody.Answers.length, 4);
+    var answerLength = parsedBody[0].Answers.length;
+    t.equal(parsedBody[0].text, fakeQuestion.text);
+    t.equal(answerLength, 4);
   });
 
 });

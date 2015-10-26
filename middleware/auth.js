@@ -63,12 +63,12 @@ module.exports = function(passport, app) {
       .then(function(user) {
         // does the user exist?
         if (!user) {
-          return done(null, false, req.flash('loginMessage', 'Are you sure that\'s your username?'))
+          return done(null, false);
         }
 
         // is the password correct?
         if (!user.validPassword(password)) {
-          return done(null, false, req.flash('loginMessage', 'Try a different password'));
+          return done(null, false);
         }
 
         // user is authenticated!

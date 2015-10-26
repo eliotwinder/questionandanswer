@@ -16,6 +16,7 @@ var models = require('./models/index');
 
 // add all our models to the app so they are always on the request
 app.set('models', models);
+app.set('sequelize', sequelize);
 
 // UTILITIES
 var fs = require('fs');
@@ -44,5 +45,5 @@ sequelize.sync().then(function() {
   http.createServer(app).listen(port);
 
   // TODO: COMMENT OUT insert dummyData
-  dummyData(models);
+  // dummyData(models);
 });

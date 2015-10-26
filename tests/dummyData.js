@@ -121,9 +121,6 @@ module.exports = function(models) {
               user.setAnswers(randomAnswer);
             }
         });
-
-
-        console.log(users[0]);
       });
     })
     .catch(function(err){
