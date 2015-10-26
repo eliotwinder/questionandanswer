@@ -50,32 +50,18 @@ test('login user before testing questions end point', function(t){
 });
 
 
-test('post question', function(t) {
-  t.plan(2);
-  request.post({
-    url: url + '/api/question',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify(fakeQuestion),
-    jar: j 
-  }, function(error, response, body){
-    var parsedBody = JSON.parse(body);
-    var answerLength = parsedBody.Answers.length;
-    t.equal(parsedBody.text, fakeQuestion.text);
-    t.equal(answerLength, 4);
-  });
-});
-
-test('get questions, not checking if user has answered', function(t){   
-  t.plan(2);
+test('get questions', function(t){   
+  t.plan(3);
 
   request.get({
     url: url + '/api/question',
     jar: j 
   }, function(error, response, body){
-    var parsedBody = JSON.parse(body);
-    var answerLength = parsedBody[0].Answers.length;
-    t.equal(parsedBody[0].text, fakeQuestion.text);
-    t.equal(answerLength, 4);
+    var questions = JSON.parse(body);
+    var answers = questions[0].answers;
+
+    t.equal(!questions[0].text, false);
+    t.equal(answers.length, 4);
   });
 
 });

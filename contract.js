@@ -6,15 +6,16 @@
 GET '/api/question' => response body = {
   questions: [{
   text: "This is the actual question"
+  totalAnswers: the number of people that have answered this question
   answers: [{
       text: "option 1"
-      score: 43 // percentage of the vote this answer has recieved
-    }, answer3, etc.
-  }, question 2, etc.]
+      count: 43 // percentage of the vote this answer has recieved
+    }, answer3, etc.]
+  }, question2, etc.]
 };
 
 // returns all questions asked by an admin
-GET '/api/answers' => response body = same as '/api/question'
+POST '/api/answer' => response body = same as '/api/question'
 
 // adds a question to db - currently accepts any # of answers
 POST '/api/question' => request body = {
@@ -23,7 +24,7 @@ POST '/api/question' => request body = {
       answers ['option 1', 'option 2', 'option 3', 'option 4', etc]
     }
   }
-  Response.body will be the same as request body
+  response.body will be the same as request body
 
 POST '/api/signup' =>
   request body = {
@@ -31,9 +32,10 @@ POST '/api/signup' =>
     password: 'password'
   };
 
-  response redirects to '/signup'
+  ok response redirects to '/questions'
+  error response redirects to '/signup'
 
-POST '/api/signup' =>
+POST '/api/login' =>
   request body = {
     username: 'username',
     password: 'password'

@@ -1,2 +1,17 @@
+mvp
+- server
+  - percent of vote
+  - post question (have sequelize written in dummyData)
+  - get an admin's questions
+  - random questions
+- client
+  - styling
+  - http requests
+  - make sure clicking is working correctly
+
+Features
 - handle user signup when username is taken
 - sanitize username
+- add task runner
+- protect admin sign up
+- cache answer percentages

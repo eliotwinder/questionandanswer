@@ -27,12 +27,42 @@ module.exports = {
           where: {
             $or: orClause
           },
-          include: [Answer]
+          order: [
+            [sequelize.fn('RAND', '')]
+          ],
+          limit: 10,
+          include: [{
+            model: Answer, 
+            include: [User]
+          }]
         });
       })
       .then(function(questionObjects){
-        console.log(res.json);
-        res.json(questionObjects);
+        var response = [];
+
+        questionObjects.forEach(function(questionObject){
+          var newQuestion = {
+            id: questionObject.id,
+            totalAnswers: questionObject.getCount(),
+            text: questionObject.text,
+            answers: []
+          };
+
+          questionObject.Answers.forEach(function(answer){
+            var newAnswer = {
+              text: answer.text
+            };
+
+            newAnswer.count = answer.getCount();
+            newQuestion.answers.push(newAnswer);
+          });
+
+          response.push(newQuestion);
+        });
+
+        // response.shuffle();
+
+        res.json(response);
       })
       .catch(function(err){ 
         console.log(err);

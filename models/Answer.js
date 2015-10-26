@@ -4,5 +4,11 @@ module.exports = function(sequelize, dataTypes) {
       type: dataTypes.STRING,
       allowNull: false
     }
-  })
-}
+  }, {
+    instanceMethods: {
+      getCount: function(){
+        return this.Users.length;
+      }
+    }
+  });
+};

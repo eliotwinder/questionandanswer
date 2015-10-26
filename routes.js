@@ -14,9 +14,11 @@ module.exports = function(express, app, passport) {
   app.get('/api/question', isLoggedIn, questionController.get);
   // add a new question
   app.post('/api/question', isAdmin, questionController.post);
+  // answer a question
+  app.post('/api/answer', isAdmin, answerController.post);
 
   // gives answers with the questions
-  app.get('/api/question', isLoggedIn, questionController.get);
+  // app.get('/api/question', isLoggedIn, questionController.get);
   
   // USERS
   // signup new user
