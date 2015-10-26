@@ -11,7 +11,6 @@ var app = angular.module('app',[
   },{}];
 }])
 .config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise("/");
 
   $stateProvider
     .state('questions', {
@@ -44,12 +43,10 @@ var app = angular.module('app',[
       templateUrl: 'auth/loginView.html',
       data: {requireLogin: false}
     });
-
 })
 .run(function ($rootScope, $state) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-
     var requireLogin = toState.data.requireLogin;
 
     if (requireLogin && typeof $rootScope.currentUser === 'undefined') {

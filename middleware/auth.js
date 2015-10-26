@@ -24,11 +24,13 @@ module.exports = function(passport, app) {
       passReqToCallback: true
     },
     function(req, username, password, done){
+      process.nextTick(function() {
+        console.log('fsafds');
       User.findOne({where: {username: username}})
         .then(function(user) {
           // if findOne returns a user, the username is taken
           if (user) {
-            return done(null, false, req.flash('signupMsg', 'Username already taken!'));
+            return done(null, false);
           } else {
             // if the name isn't taken, add new user to database
             var newUser = {
@@ -36,21 +38,20 @@ module.exports = function(passport, app) {
               hashedPass: User.generateHash(password),
               isAdmin: req.body.isAdmin || false
             };
-
-            User.create(newUser)
-              .then(function(){
+            return User.create(newUser)
+              .then(function(user){
                 return done(null, user);
               })
               .catch(function(err){
-                return done(err);
+                throw err;
               });
           }
         })
         .catch(function(err) {
           return done(err);
         });
-    })
-  );
+    });
+  }));
 
   // login
   passport.use('local-login', new LocalStrategy({
@@ -78,5 +79,5 @@ module.exports = function(passport, app) {
         return done(err);
       });
     })
-  )
+  );
 };

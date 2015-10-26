@@ -1,42 +1,52 @@
 angular.module('app.auth', [])
-.controller('authController', ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http){
+.controller('authController', ['$rootScope', '$scope', '$http', '$state', '$interpolate', function($rootScope, $scope, $http, $state, $interpolate){
   
   $scope.user = {
     username: "",
     password: ""
   };
+  $scope.errorMessage = "";
 
   $scope.login = function(){
-    console.log('logging in');
     $http({
       method: 'POST',
       url: window.location.origin + '/api/login',
       data: JSON.stringify({
-        username: $scope.username,
-        password: $scope.password        
+        username: $scope.user.username,
+        password: $scope.user.password        
       })
     })
       .then(function successCallback(response) {
-        console.log('login response:', response);
+        $rootScope.currentUser = {
+          username: response.data.user,
+          isAdmin: response.data.user.isAdmin
+        };
+
+        if (response.data.user.isAdmin) {
+          $state.go('admin');
+        } else {
+          $state.go('questions');
+        }
       }, function errorCallback(response) {
         console.log('login error:', response );
       });
   };
 
   $scope.signup = function(){
-    $http({
-      method: 'POST',
-      url: window.location.origin + '/api/signup',
-      data: JSON.stringify({
-        username: $scope.username,
-        password: $scope.password        
-      })
-    })
+    $http.post(window.location.origin + '/api/signup',{
+        "username": $scope.user.username,
+        "password": $scope.user.password        
+      }
+    )
       .then(function successCallback(response) {
-        console.log(response);
-        //$rootScope.currentUser = response.body?
-      }, function errorCallback(response) {
+        $rootScope.currentUser = {
+          username: response.data.user,
+          isAdmin: response.data.user.isAdmin
+        };
 
+        $state.go('questions');
+      }, function errorCallback(response) {
+          $scope.errorMessage = "Username taken, please try again";
       });
   };  
 }])

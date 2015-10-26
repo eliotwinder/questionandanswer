@@ -33,7 +33,7 @@ test('signup Test', function(t){
 
 test('login user before testing questions end point', function(t){
   t.plan(0);
-  
+
   request.post({
       url: url + '/api/login',
       headers: {'content-type': 'application/json'},
@@ -48,7 +48,6 @@ test('login user before testing questions end point', function(t){
       }
   });
 });
-
 
 test('post question', function(t) {
   t.plan(2);

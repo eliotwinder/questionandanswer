@@ -12,25 +12,44 @@ module.exports = function(express, app, passport) {
   // QUESTIONS
   // get a new set of questions
   app.get('/api/question', isLoggedIn, questionController.get);
+  
   // add a new question
   app.post('/api/question', isAdmin, questionController.post);
+
   // answer a question
   app.post('/api/answer', isAdmin, answerController.post);
-
-  // gives answers with the questions
-  // app.get('/api/question', isLoggedIn, questionController.get);
   
   // USERS
   // signup new user
-  app.post('/api/signup', passport.authenticate('local-signup', {
-    successRedirect : '/index', 
-    failureRedirect : '/signup', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
-  }));
+  // app.post('/api/signup', passport.authenticate('local-signup', {
+  //   successRedirect: '/',
+  //   failureRedirect: '/',
+  //   failureFlash: true
+  // }));  
+
+  app.post('/api/signup', passport.authenticate('local-signup'), 
+    function(req, res, next){
+      if(req.user) {
+        res.status(201).send({user: {
+          username: req.user.username,
+          isAdmin: req.user.isAdmin
+        }});
+      } else {
+        res.status(422).send('user already exists');
+      }
+    });
+
   // user login
-  app.post('/api/login', passport.authenticate('local-login', {
-    successRedirect : '/questions', // redirect to the secure profile section
-    failureRedirect : '/login', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
-  }));
+  app.post('/api/login', passport.authenticate('local-login'),function(req, res, next){
+      if(req.user) {
+        res.status(200).send({user: {
+          username: req.user.username,
+          isAdmin: req.user.isAdmin
+        }});
+      } else {
+        res.status(422).send('wrong name orpassword, try again!');
+      }
+    });
 };
+
+

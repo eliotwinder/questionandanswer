@@ -10,6 +10,7 @@ var dummyData = require('./tests/dummyData'); //TODO: COMMENT OUT
 var path = require('path');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
 var session = require('express-session');
 var sequelize = require('./models/index').sequelize;
 var models = require('./models/index');
@@ -37,9 +38,8 @@ sequelize.sync().then(function() {
   app.use(session({ secret: config.secret})); // session secret
   app.use(passport.initialize());
   app.use(passport.session());
-
   // serve static files from client folder
-  app.use(express.static(__dirname + '/client/'));
+  app.use(express.static('client'));
 
   routes(express, app, passport);
   http.createServer(app).listen(port);
