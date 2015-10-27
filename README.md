@@ -14,3 +14,4 @@ To add dummy data:
 - uncomment 'dummyData' function call at the end of app.js
 
 Please note that todos.txt contains remaining work to be done on the app
+**This app is not secure unless refactored to use https/ssl
