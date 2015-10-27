@@ -5,13 +5,9 @@ var app = angular.module('app',[
   'app.navbar',
   'app.auth'])
 .controller('appController', ['$scope', '$http', function($scope, $http) {
-  $scope.questions = [{
-    text: 'are you',
-    answers: ['yes','no']
-  },{}];
 }])
 .config(function($stateProvider, $urlRouterProvider){
-
+  $urlRouterProvider.otherwise('/login');
   $stateProvider
     .state('questions', {
       url: '/questions',
@@ -29,29 +25,34 @@ var app = angular.module('app',[
       url: '/login',
       controller: 'authController',
       templateUrl: 'auth/loginView.html',
-      data: {requireLogin: false}
+      data: {loggedIn: true}
     })
     .state('signup',{
       url: '/signup',
       controller: 'authController',
       templateUrl: 'auth/signupView.html',
-      data: {requireLogin: false}
+      data: {loggedIn: true}
     })
     .state('logout', {
       url: '/logout',
       controller: 'logoutController',
-      templateUrl: 'auth/loginView.html',
       data: {requireLogin: false}
     });
 })
 .run(function ($rootScope, $state) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-    var requireLogin = toState.data.requireLogin;
 
-    if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
+    // reroute to login if a user is not logged in
+    if (toState.data.requireLogin && !$rootScope.currentUser) {
       event.preventDefault();
       $state.go('login');
+    }
+
+    // reroute to questions if a user is logged in
+    if (toState.data.loggedIn && $rootScope.currentUser) {
+      event.preventDefault();
+      $state.go('questions');
     }
   });
 

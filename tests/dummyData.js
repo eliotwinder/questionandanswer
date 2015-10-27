@@ -117,7 +117,6 @@ module.exports = function(models) {
         users.forEach(function(user){
             if (Math.random() > 0.5) {
               var randomAnswer = question.Answers[Math.floor(Math.random()*question.Answers.length)];
-              console.log('here', user.setAnswers);
               user.setAnswers(randomAnswer);
             }
         });

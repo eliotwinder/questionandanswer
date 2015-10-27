@@ -6,13 +6,13 @@ module.exports = {
     var User = req.app.get('models').User;
     var Answer = req.app.get('models').Answer;
     var sequelize = req.app.get('sequelize');
-
+    
     var query = ["SELECT `Questions`.`id` FROM `Questions` ",
       "WHERE NOT EXISTS (SELECT * FROM `Answers` ",
       "LEFT OUTER JOIN `userAnswer` ",
       "ON `Answers`.`id`=`userAnswer`.`AnswerId` ",
-      "WHERE `userAnswer`.`UserId`=5 ",
-      "AND `Questions`.`id`=`Answers`.`QuestionId`)",
+      "WHERE `userAnswer`.`UserId`=", req.user.id,
+      " AND `Questions`.`id`=`Answers`.`QuestionId`)",
       "GROUP BY `Questions`.`id`;"].join('');
     
     return sequelize.query(query)
@@ -22,7 +22,7 @@ module.exports = {
         questionIds[0].forEach(function(questionId){
           orClause.push({id: questionId.id});
         });
-
+        
         return Question.findAll({
           where: {
             $or: orClause
@@ -39,6 +39,7 @@ module.exports = {
       })
       .then(function(questionObjects){
         var response = [];
+        console.log('response', questionObjects);
 
         questionObjects.forEach(function(questionObject){
           var newQuestion = {
@@ -62,7 +63,7 @@ module.exports = {
 
         // response.shuffle();
 
-        res.json(response);
+        res.status(200).json(response);
       })
       .catch(function(err){ 
         console.log(err);

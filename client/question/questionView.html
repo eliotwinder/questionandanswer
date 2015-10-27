@@ -1,6 +1,11 @@
-<div>
-  <div> {{ questions[0].text }} </div>
-  <div ng-repeat='answer in question[0].answers track by $index'>
-    <div> {{ answer }} </div>
+<div ng-model="questions[0]" class="question container">
+  <h2 class="col-xs-6 col-xs-offset-3"> {{ questions[0].text }} </h2>
+  <div class="col-md-4 col-md-offset-2">
+    <button class="col-xs-6 col-xs-offset-3 btn btn-lg btn-info answer" ng-click="sendAnswer($event)" data-answerid=" {{ answer.id }}">{{ questions[0].answers[0].text }}</button>
+    <button class="col-xs-6 col-xs-offset-3 btn btn-lg btn-info answer" ng-click="sendAnswer($event)" data-answerid=" {{ answer.id }}">{{ questions[0].answers[1].text }}</button>
+  </div>  
+  <div class="col-md-4">
+    <button class="col-xs-6 col-xs-offset-3 btn btn-lg btn-info answer" ng-click="sendAnswer($event)" data-answerid=" {{ answer.id }}">{{ questions[0].answers[2].text }}</button>
+    <button class="col-xs-6 col-xs-offset-3 btn btn-lg btn-info answer" ng-click="sendAnswer($event)" data-answerid=" {{ answer.id }}">{{ questions[0].answers[3].text }}</button>
   </div>
 </div>

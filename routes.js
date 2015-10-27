@@ -20,13 +20,7 @@ module.exports = function(express, app, passport) {
   app.post('/api/answer', isAdmin, answerController.post);
   
   // USERS
-  // signup new user
-  // app.post('/api/signup', passport.authenticate('local-signup', {
-  //   successRedirect: '/',
-  //   failureRedirect: '/',
-  //   failureFlash: true
-  // }));  
-
+  // signup new user 
   app.post('/api/signup', passport.authenticate('local-signup'), 
     function(req, res, next){
       if(req.user) {
@@ -47,7 +41,7 @@ module.exports = function(express, app, passport) {
           isAdmin: req.user.isAdmin
         }});
       } else {
-        res.status(422).send('wrong name orpassword, try again!');
+        res.status(422).send('wrong name or password, try again!');
       }
     });
 };

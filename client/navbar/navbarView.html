@@ -1,10 +1,26 @@
-<div class="navbar" >
-  <div class="headercompanyname"> Q and A</div>
-  <ul class="navlinks">
-    <li ui-sref="admin">Admin</li>
-    <li ui-sref="questions">Questions</li>
-    <li ui-sref="signup">Signup</li>
-    <li ui-sref="login">Login</li>
-    <li ui-sref="logout">Logout</li>
-  </ul>
+<div class="navbar navbar-default navbar-fixed-top" ng-controller="navbarController">
+  <div class="container-fluid">
+    
+    <!-- button for collapsed navbar -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed" aria-expanded="true">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Q and A</a>
+    </div>
+    
+    <!-- if user is logged in -->
+      <div class="navbar-collapse collapse in" collapse="isCollapsed" aria-expanded="true">
+        <ul class="nav navbar-nav">
+          <li ng-show="currentUser.isAdmin"><a ui-sref="admin" >Admin</a></li>
+          <li ng-show="currentUser"> <a ui-sref="questions">Questions</a></li>
+          <li ng-show="currentUser"><a ui-sref="logout">Logout</a></li>
+          <li ng-show="!currentUser"><a ui-sref="signup">Signup</a></li>
+          <li ng-show="!currentUser"><a ui-sref="login">Login</a></li>
+        </ul>
+      </div>
+  </div>  
 </div>

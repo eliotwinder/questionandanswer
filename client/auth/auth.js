@@ -16,7 +16,7 @@ angular.module('app.auth', [])
         password: $scope.user.password        
       })
     })
-      .then(function successCallback(response) {
+      .then(function (response) {
         $rootScope.currentUser = {
           username: response.data.user,
           isAdmin: response.data.user.isAdmin
@@ -27,7 +27,8 @@ angular.module('app.auth', [])
         } else {
           $state.go('questions');
         }
-      }, function errorCallback(response) {
+      }, function (response) {
+        $scope.errorMessage = "No user by that name, try again!";
         console.log('login error:', response );
       });
   };

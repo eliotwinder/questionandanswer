@@ -1,0 +1,23 @@
+.background {
+  min-height: 100vh;
+}
+
+.authform {
+  text-align: center;
+}
+
+.col-centered {
+  float: none;
+  display: inline-block;
+  margin: 0 auto;
+}
+.question {
+  text-align: center;
+}
+
+.answer {
+  box-sizing: content-box;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
