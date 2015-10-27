@@ -15,11 +15,9 @@
     <!-- if user is logged in -->
       <div class="navbar-collapse collapse in" collapse="isCollapsed" aria-expanded="true">
         <ul class="nav navbar-nav">
-          <li ng-show="currentUser.isAdmin"><a ui-sref="admin" >Admin</a></li>
-          <li ng-show="currentUser"> <a ui-sref="questions">Questions</a></li>
-          <li ng-show="currentUser"><a ui-sref="logout">Logout</a></li>
-          <li ng-show="!currentUser"><a ui-sref="signup">Signup</a></li>
-          <li ng-show="!currentUser"><a ui-sref="login">Login</a></li>
+          <li ng-show="currentUser.isAdmin"><a ui-sref="admin" ng-click="isCollapsed = !isCollapsed">Admin</a></li>
+          <li ng-show="currentUser"> <a ui-sref="questions" ng-click="isCollapsed = !isCollapsed">Questions</a></li>
+          <li ng-show="currentUser"><a ui-sref="logout" ng-click="isCollapsed = !isCollapsed">Logout</a></li>
         </ul>
       </div>
   </div>  

@@ -4,7 +4,8 @@ var express = require('express');
 var passport = require('passport');
 var http = require('http');
 var app = express();
-var dummyData = require('./tests/dummyData'); //TODO: COMMENT OUT
+var dummyData = require('./tests/dummyData'); 
+var createAdmin = require('./tests/createAdmin');
 
 // MIDDLEWARE
 var path = require('path');
@@ -45,5 +46,7 @@ sequelize.sync().then(function() {
   http.createServer(app).listen(port);
 
   // TODO: COMMENT OUT insert dummyData
-  // dummyData(models);
+  dummyData(models);
+  // create admin
+  createAdmin(app);
 });

@@ -4,7 +4,19 @@ var app = angular.module('app',[
   'app.admin',
   'app.navbar',
   'app.auth'])
-.controller('appController', ['$scope', '$http', function($scope, $http) {
+.controller('appController', ['$rootScope', '$scope', '$window', '$http', function($rootScope, $scope, $window, $http) {
+
+  //check if user is stored
+  function init() {
+    if ($window.sessionStorage["currentUserName"]) {
+      $rootScope.currentUser = {
+        username: $window.sessionStorage["currentUserName"],
+        isAdmin: $window.sessionStorage["currentUserIsAdmin"]
+      }
+    }
+  }
+
+  init();
 }])
 .config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/login');
@@ -39,9 +51,23 @@ var app = angular.module('app',[
       data: {requireLogin: false}
     });
 })
-.run(function ($rootScope, $state) {
+.run(function ($rootScope, $window, $state) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    // clear cookie if logging out
+    if (toState.name === 'logout') {
+      $window.sessionStorage.removeItem('currentUserName');
+      $window.sessionStorage.removeItem('currentUserIsAdmin');
+    }
+    
+    // check if the user is loggedin
+    if ($window.sessionStorage['currentUser']) {
+      console.log($window.sessionStorage);
+      $rootScope.currentUser = {
+        username: $window.sessionStorage['currentUserName'],
+        isAdmin: $window.sessionStorage['currentUserIsAdmin']
+      }
+    }
 
     // reroute to login if a user is not logged in
     if (toState.data.requireLogin && !$rootScope.currentUser) {

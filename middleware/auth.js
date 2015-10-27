@@ -25,7 +25,7 @@ module.exports = function(passport, app) {
     },
     function(req, username, password, done){
       process.nextTick(function() {
-        console.log('fsafds');
+
       User.findOne({where: {username: username}})
         .then(function(user) {
           // if findOne returns a user, the username is taken

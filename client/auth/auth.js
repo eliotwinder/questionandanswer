@@ -1,5 +1,5 @@
 angular.module('app.auth', [])
-.controller('authController', ['$rootScope', '$scope', '$http', '$state', '$interpolate', function($rootScope, $scope, $http, $state, $interpolate){
+.controller('authController', ['$rootScope', '$scope', '$http', '$state', '$window', function($rootScope, $scope, $http, $state, $window){
   
   $scope.user = {
     username: "",
@@ -17,10 +17,17 @@ angular.module('app.auth', [])
       })
     })
       .then(function (response) {
+
+        // save user info to rootscope
         $rootScope.currentUser = {
           username: response.data.user,
           isAdmin: response.data.user.isAdmin
         };
+
+        // save user info for persistent login
+        $window.sessionStorage['currentUserName'] = $rootScope.currentUser.username;
+        $window.sessionStorage['currentUserIsAdmin'] = $rootScope.currentUser.isAdmin
+        
 
         if (response.data.user.isAdmin) {
           $state.go('admin');
@@ -40,10 +47,15 @@ angular.module('app.auth', [])
       }
     )
       .then(function successCallback(response) {
+        console.log(response.data);
         $rootScope.currentUser = {
           username: response.data.user,
           isAdmin: response.data.user.isAdmin
         };
+
+        // save user info for persistent login
+        $window.sessionStorage['currentUserName'] = $rootScope.currentUser.username;
+        $window.sessionStorage['currentUserIsAdmin'] = $rootScope.currentUser.isAdmin
 
         $state.go('questions');
       }, function errorCallback(response) {
@@ -51,7 +63,8 @@ angular.module('app.auth', [])
       });
   };  
 }])
-.controller('logoutController', ['$rootScope', '$state', function($rootScope, $state){
+.controller('logoutController', ['$rootScope', '$window', '$state', function($rootScope, $window, $state){
   $rootScope.currentUser = null;
+  $window.sessionStorage.removeItem('currentUser');
   $state.go('login');
 }]);

@@ -1,30 +1,59 @@
-<div>
-  <div class="main">
-    <form ng-submit="postQuestion()">
-      <h1> Username:</h1> 
-      <input type="text" ng-model="newQuestion.username">
-      <h1>Password:</h1>
-      <input type="password" ng-model="newQuestion.answer1">
-      <input type="password" ng-model="newQuestion.answer2">
-      <input type="password" ng-model="newQuestion.answer3">
-      <input type="password" ng-model="newQuestion.answer4">
-      <input class="button signinbutton" type="submit" value="Sign in">
-    </form>
-  </div>
-  <div> Current Results </div>
-  <table>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 text-center" ng-click="toggleForm()" ng-show="!showForm">Click here to post a question</div>
+  <form class="form-horizontal col-sm-8 col-sm-offset-2" ng-submit="postQuestion()" ng-show="showForm">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Question</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control input-sm" ng-model="newQuestion.text">
+      </div>
+    </div>  
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Answer 1</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control input-sm" ng-model="newQuestion.answer1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Answer 2</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control input-sm" ng-model="newQuestion.answer2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Answer 3</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control input-sm" ng-model="newQuestion.answer3">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Answer 4</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control input-sm" ng-model="newQuestion.answer4">
+      </div>
+    </div>
+    <div class="form-actions text-center">
+      <input class="btn btn-info col-s-6 col-s-offset-3" type="submit" value="Ask a Question">
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <h3>Results:</h3>
+  <table class="table">
     <tr>
       <th> Question </th>
-      <th> Answers </th>
+      <th> Answer </th>
+      <th> Percent of Vote </th>
     </tr>
     <tr ng-repeat="question in questions track by $index">
       <td> {{ question.text }} </td>
-      <td> 
-        <div ng-repeat="answer in question.answers"> 
-          <div> {{ answer.text}} </div> 
-          <div> {{ answer.score }} </div>
-        </div>
+      <td>
+        <div ng-repeat="answer in question.answers"> {{ answer.text }} </div>   
       </td>
+      <td> 
+        <div ng-repeat="answer in question.answers"> {{ formatCount(answer, question) }} %</div>   
+      </td>
+      </tr>
     </tr>
   </table>
 </div>

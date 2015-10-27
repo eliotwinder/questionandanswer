@@ -4,7 +4,7 @@ var Sequelize = require('sequelize');
 // create sequelize instance
 var sequelize = new Sequelize(config.dbname, config.username, config.password, {
     // disable logging; default: console.log
-    // logging: false
+    logging: false
   });
 
 // import sequelize models

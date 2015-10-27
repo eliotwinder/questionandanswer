@@ -1,23 +1,36 @@
-.background {
-  min-height: 100vh;
-}
-
-.authform {
-  text-align: center;
-}
 
 .col-centered {
-  float: none;
-  display: inline-block;
-  margin: 0 auto;
+    float: none;
+    margin: 0 auto;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.word-wrap {
+  white-space: normal !important;
+  line-height: 0.5;
+}
+
+.content {
+  margin-top: 60px;
+  max-width: 720px;
+}
+
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
 .question {
   text-align: center;
+  margin: 5px;
 }
 
 .answer {
-  box-sizing: content-box;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
+  height: 75px;
+}
+
+.postquestion label, .postquestion input{
+  display: inline-block;
 }

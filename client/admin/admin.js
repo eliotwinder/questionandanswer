@@ -1,6 +1,8 @@
 angular.module('app.admin', [])
 .controller('adminController', ['$scope', '$http', function($scope, $http){
   
+  $scope.showForm = false;
+  
   $scope.newQuestion = {
     text: "",
     answer1: "",
@@ -9,53 +11,43 @@ angular.module('app.admin', [])
     answer4: ""
   };
 
-  $scope.questions = [{
-    text: 'sample question 1',
-    answers: [{
-        text: 'a',
-        score: 43
-      }, {
-        text: 'b',
-        score: 22
-      },{
-        text: 'c',
-        score: 13
-      },{
-        text: 'd',
-        score: 50
-      }]
-  },{
-    text: 'sample question 2',
-    answers: [{
-        text: '2a',
-        score: 43
-      }, {
-        text: '2b',
-        score: 22
-      },{
-        text: '2c',
-        score: 13
-      },{
-        text: '2d',
-        score: 50
-      }]
-  }];
+  $scope.questions = [];
 
-  var postQuestion = function() {
+  // for the add question form's ng-show
+  $scope.toggleForm = function(){
+    $scope.showForm = !$scope.showForm;
+  };
+
+  // calculate percentage of votes per answer
+  $scope.formatCount = function(answer, question) {
+    var percent = parseInt(answer.count / question.totalAnswers * 100);
+
+    if (isNaN(percent)) {
+      percent = 0;
+    }
+
+    return percent;
+  }
+
+  // add a new question
+  $scope.postQuestion = function() {
     
     var newQuestion = {
       text: $scope.newQuestion.text,
       answers: [
-        $scope.newQuestion1,
-        $scope.newQuestion2,
-        $scope.newQuestion3,
-        $scope.newQuestion4,
+        $scope.newQuestion.answer1,
+        $scope.newQuestion.answer2,
+        $scope.newQuestion.answer3,
+        $scope.newQuestion.answer4,
       ]
     };
     console.log('Posting question');
+
+    $scope.showForm = false;
+
     $http({
       method: 'POST',
-      url: windown.location.origin + 'api/question',
+      url: window.location.origin + '/api/question',
       data: JSON.stringify({
         question: newQuestion
       })
@@ -67,4 +59,19 @@ angular.module('app.admin', [])
       });
   };
 
+  // get all the results for questions this admin has posted
+  var getResults = function(){
+    $http({
+      method: 'GET',
+      url: window.location.origin + '/api/answer',
+    })
+    .then(function(data){
+      console.log(data.data[0])
+      $scope.questions = data.data;
+      }, function(error){
+        console.log(error);
+    });
+  };
+
+  getResults();
 }]);

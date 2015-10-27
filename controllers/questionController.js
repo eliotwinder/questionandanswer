@@ -2,6 +2,7 @@ var Promise = require('bluebird');
 module.exports = {
   // retrieve ten questions that the user hasn't answered 
   get: function(req, res, next) {
+
     var Question = req.app.get('models').Question;
     var User = req.app.get('models').User;
     var Answer = req.app.get('models').Answer;
@@ -15,20 +16,25 @@ module.exports = {
       " AND `Questions`.`id`=`Answers`.`QuestionId`)",
       "GROUP BY `Questions`.`id`;"].join('');
     
+    // first find all the questions we have answered
     return sequelize.query(query)
       .then(function(questionIds){
+
         var orClause = [];
 
         questionIds[0].forEach(function(questionId){
-          orClause.push({id: questionId.id});
+          orClause.push(questionId.id);
         });
-        
+
+        // find all questions that we haven't answered
         return Question.findAll({
           where: {
-            $or: orClause
+            id: {
+              $in: orClause  
+            }
           },
           order: [
-            [sequelize.fn('RAND', '')]
+            [sequelize.fn('RAND', "")]
           ],
           limit: 10,
           include: [{
@@ -39,8 +45,8 @@ module.exports = {
       })
       .then(function(questionObjects){
         var response = [];
-        console.log('response', questionObjects);
 
+        // add counts for answers
         questionObjects.forEach(function(questionObject){
           var newQuestion = {
             id: questionObject.id,
@@ -51,7 +57,8 @@ module.exports = {
 
           questionObject.Answers.forEach(function(answer){
             var newAnswer = {
-              text: answer.text
+              text: answer.text,
+              id: answer.id
             };
 
             newAnswer.count = answer.getCount();
@@ -60,8 +67,6 @@ module.exports = {
 
           response.push(newQuestion);
         });
-
-        // response.shuffle();
 
         res.status(200).json(response);
       })
@@ -76,21 +81,20 @@ module.exports = {
     var currentQuestion;
     var Question = req.app.get('models').Question;
     var Answer = req.app.get('models').Answer;
-
+    
     Question.create({
-      text: req.body.text,
+      text: req.body.question.text,
       UserId: req.user.id
     })
       .then(function(question){
         // save 
         currentQuestion = question;
-        
         // add answers to the answer table
         var answers = [];
-
-        for (var i = 0; i < req.body.answers.length; i++) {
+        
+        for (var i = 0; i < req.body.question.answers.length; i++) {
           answers.push(Answer.create({
-            text: req.body.answers[i],
+            text: req.body.question.answers[i],
             QuestionId: question.id
           }));
         }

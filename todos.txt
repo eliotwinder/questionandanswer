@@ -1,19 +1,16 @@
 mvp
 - server
-  - percent of vote
-  - post question (have sequelize written in dummyData)
-  - get an admin's questions
-  - random questions - sequelize is caching, so same user will get the same questions on immediate refresh
   - cache answer percentages
   - sanitize username
   - add task runner
   - protect admin sign up
-  - persistent login
+  - persistent login bugs
 - client
-  - styling
-    - highlight current link in nav bar
+  - make answer button heights relative to the amount of text
+  - handle no questions left
+  - highlight current link in nav bar when refreshing
   - http requests
-  - make sure clicking is working correctly
-  - hide admin button if not an admin
+  - isAdmin doesn't work on refresh
+
 
 
